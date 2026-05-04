@@ -34,7 +34,6 @@ class FaqController extends Controller
     {
         Faq::create([
             ...$request->validated(),
-            'is_active' => $request->has('is_active'),
         ]);
 
         return back()->with('success', 'FAQ berhasil ditambahkan');
@@ -44,7 +43,6 @@ class FaqController extends Controller
     {
         $faq->update([
             ...$request->validated(),
-            'is_active' => $request->has('is_active'),
         ]);
 
         return back()->with('success', 'FAQ berhasil diupdate');

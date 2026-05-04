@@ -25,7 +25,6 @@ class FaqRequest extends FormRequest
             'application_id' => 'required|exists:applications,id',
             'question' => 'required|string|max:500',
             'answer' => 'required|string',
-            'is_active' => 'nullable|in:0,1'
         ];
     }
 }

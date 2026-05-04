@@ -50,16 +50,6 @@
                         </div>
                     </div>
 
-                    <div class="form-check">
-                        <!-- default -->
-                        <input type="hidden" name="is_active" value="0">
-
-                        <!-- checkbox -->
-                        <input type="checkbox" name="is_active" value="1" class="form-check-input"
-                            {{ $faq->is_active ? 'checked' : '' }}>
-
-                        <label class="form-check-label">Aktif</label>
-                    </div>
 
                 </div>
 

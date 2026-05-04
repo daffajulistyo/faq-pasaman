@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\ApplicationRequest;
 use App\Models\Application;
 
@@ -9,9 +10,16 @@ use Illuminate\Support\Str;
 
 class ApplicationController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $applications = Application::latest()->paginate(10);
+        $query = Application::query();
+
+        if ($request->search) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        $applications = $query->latest()->paginate(10)->withQueryString();
+
         return view('admin.aplikasi.index', compact('applications'));
     }
 
@@ -19,8 +27,6 @@ class ApplicationController extends Controller
     {
         $data = $request->validated();
 
-        // auto slug kalau kosong
-        $data['slug'] = $data['slug'] ?? Str::slug($data['name']);
 
         Application::create($data);
 
@@ -30,7 +36,6 @@ class ApplicationController extends Controller
     public function update(ApplicationRequest $request, Application $application)
     {
         $data = $request->validated();
-        $data['slug'] = $data['slug'] ?? Str::slug($data['name']);
 
         $application->update($data);
 

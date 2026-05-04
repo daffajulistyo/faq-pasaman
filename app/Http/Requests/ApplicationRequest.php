@@ -23,7 +23,6 @@ class ApplicationRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:applications,slug,' . $this->id,
             'description' => 'nullable|string'
         ];
     }

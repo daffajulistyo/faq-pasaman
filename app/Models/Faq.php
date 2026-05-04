@@ -13,7 +13,6 @@ class Faq extends Model
         'application_id',
         'question',
         'answer',
-        'is_active'
     ];
 
     public function application()

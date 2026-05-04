@@ -8,7 +8,6 @@
 
             <div class="modal-body">
                 <p><strong>Nama:</strong> {{ $app->name }}</p>
-                <p><strong>Slug:</strong> {{ $app->slug }}</p>
                 <p><strong>Deskripsi:</strong> {{ $app->description }}</p>
             </div>
         </div>

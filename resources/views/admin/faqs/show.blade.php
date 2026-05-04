@@ -24,14 +24,7 @@
                     <div>{!! $faq->answer !!}</div>
                 </div>
 
-                <div class="mb-2">
-                    <strong>Status:</strong>
-                    @if($faq->is_active)
-                        <span class="badge bg-success">Aktif</span>
-                    @else
-                        <span class="badge bg-secondary">Nonaktif</span>
-                    @endif
-                </div>
+                
 
             </div>
 

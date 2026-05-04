@@ -75,7 +75,6 @@
                                 <th>#</th>
                                 <th>Aplikasi</th>
                                 <th>Pertanyaan</th>
-                                <th>Status</th>
                                 <th width="150">Aksi</th>
                             </tr>
                         </thead>
@@ -86,13 +85,7 @@
                                     <td>{{ $faqs->firstItem() + $index }}</td>
                                     <td>{{ $faq->application->name }}</td>
                                     <td>{{ \Illuminate\Support\Str::limit($faq->question, 60) }}</td>
-                                    <td>
-                                        @if($faq->is_active)
-                                            <span class="badge bg-success">Aktif</span>
-                                        @else
-                                            <span class="badge bg-secondary">Nonaktif</span>
-                                        @endif
-                                    </td>
+                                    
                                     <td>
                                         <!-- SHOW -->
                                         <button class="btn btn-info btn-sm"

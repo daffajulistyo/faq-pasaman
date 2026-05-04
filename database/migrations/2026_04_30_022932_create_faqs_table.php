@@ -16,7 +16,6 @@ return new class extends Migration
             $table->foreignId('application_id')->constrained()->cascadeOnDelete();
             $table->string('question');
             $table->text('answer');
-            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

@@ -1,34 +1,62 @@
-<div class="modal fade" id="editModal{{ $app->id }}">
+<div class="modal fade" id="editModal{{ $app->id }}" tabindex="-1">
     <div class="modal-dialog">
         <form method="POST" action="{{ route('applications.update', $app->id) }}">
-            @csrf @method('PUT')
+            @csrf
+            @method('PUT')
 
             <div class="modal-content">
+
+                <!-- HEADER -->
                 <div class="modal-header">
-                    <h5>Edit Aplikasi</h5>
+                    <h5 class="modal-title">Edit Aplikasi</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
+                <!-- BODY -->
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label>Nama</label>
-                        <input type="text" name="name" class="form-control" value="{{ $app->name }}">
+
+                    <!-- Nama -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-3">
+                            <label class="form-label mb-0">Nama</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text"
+                                name="name"
+                                class="form-control"
+                                value="{{ $app->name }}"
+                                required>
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label>Slug</label>
-                        <input type="text" name="slug" class="form-control" value="{{ $app->slug }}">
+                    <!-- Deskripsi -->
+                    <div class="row mb-3 align-items-start">
+                        <div class="col-md-3">
+                            <label class="form-label mb-0">Deskripsi</label>
+                        </div>
+                        <div class="col-md-9">
+                            <textarea name="description"
+                                class="form-control"
+                                rows="3">{{ $app->description }}</textarea>
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <label>Deskripsi</label>
-                        <textarea name="description" class="form-control">{{ $app->description }}</textarea>
-                    </div>
                 </div>
 
+                <!-- FOOTER -->
                 <div class="modal-footer">
-                    <button class="btn btn-primary">Update</button>
+                    <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                        Tutup
+                    </button>
+
+                    <button type="submit"
+                        class="btn btn-primary">
+                        Update
+                    </button>
                 </div>
+
             </div>
         </form>
     </div>
